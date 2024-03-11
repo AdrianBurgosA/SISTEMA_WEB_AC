@@ -14,6 +14,8 @@ public class RolController {
     @Autowired
     RolService service;
 
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/")
     public List<Rol> getRoles(){
         return service.getRoles();
     }

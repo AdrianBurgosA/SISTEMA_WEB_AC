@@ -14,6 +14,8 @@ public class EstadoController {
     @Autowired
     EstadoService service;
 
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/")
     public List<Estado> getEstados(){
         return service.getEstados();
     }

@@ -14,6 +14,8 @@ public class TramiteController {
     @Autowired
     TramiteService service;
 
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/")
     public List<Tramite> getTramites(){
         return service.getTramites();
     }

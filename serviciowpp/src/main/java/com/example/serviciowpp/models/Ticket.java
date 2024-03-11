@@ -19,7 +19,7 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idticket;
-    private int id;
+    private int idus;
     private int idtramite;
     private int idestado;
     private String cedulacli;
@@ -30,7 +30,7 @@ public class Ticket {
 
     public Ticket(int idticket, int id, int idtramite, int idestado, String cedulacli, Date fecha) {
         this.idticket = idticket;
-        this.id = id;
+        this.idus = id;
         this.idtramite = idtramite;
         this.idestado = idestado;
         this.cedulacli = cedulacli;
@@ -42,7 +42,7 @@ public class Ticket {
     }
 
     public int getId() {
-        return id;
+        return idus;
     }
 
     public int getIdtramite() {
@@ -66,7 +66,7 @@ public class Ticket {
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idus = id;
     }
 
     public void setIdtramite(int idtramite) {

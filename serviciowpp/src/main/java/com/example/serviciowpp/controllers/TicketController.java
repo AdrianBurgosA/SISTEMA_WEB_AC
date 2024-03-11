@@ -20,6 +20,13 @@ public class TicketController {
     public List<Ticket> getTickets() {
         return service.getTickets();
     }
+    
+    // *Este servicio retorna los tickets de un usuario
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping("/{id}")
+    public List<Ticket> getTicketByUser(@PathVariable("id") int id) {
+        return service.getTicketByUs(id);
+    }
 
     // *Este servicio debe registrar un nuevo ticket
     @CrossOrigin(origins = "http://localhost:3000")

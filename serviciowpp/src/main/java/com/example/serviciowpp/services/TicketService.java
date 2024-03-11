@@ -24,4 +24,8 @@ public class TicketService {
     public void borrar(int id){
         rep.deleteById(id);
     }
+
+    public List<Ticket> getTicketByUs(int i){
+        return rep.findByIdus(i);
+    }
 }

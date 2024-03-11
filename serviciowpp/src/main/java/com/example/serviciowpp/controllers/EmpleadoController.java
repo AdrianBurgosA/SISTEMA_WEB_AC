@@ -25,11 +25,13 @@ public class EmpleadoController {
     }
 
     //*Este servicio debe registrar un nuevo empleado y un nuevo usuario
+    // !Este servicio no funciona xd, a mimir
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/")
-    public void guardarActualizar(@RequestBody EmpleadoRequest e){
-        eService.guardarActualizar(new Empleado(e.getCedula(),e.getNombre(),e.getApellido()));
-        uService.saveUpdate(e.getUsuario());
+    public void guardarActualizar(@RequestBody Empleado e){
+        System.out.println(e.toString());
+        eService.guardarActualizar(new Empleado(e.getCedula(), e.getNombre(), e.getApellido()));
+        //uService.saveUpdate(new Usuario(e.getCedula(), e.getIdrol(), e.getUsername(), e.getPassword()));
     }
 
     //* Servicio para eliminar un empleado y el usuario

@@ -9,6 +9,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom"
+import api from '../../api/Axios'
 
 const Login = () => {
   const theme = createTheme();
@@ -18,21 +19,18 @@ const Login = () => {
   });
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    /*try{
-      const response = api.get(`/${userRequest.u}/${userRequest.p}`)
-      navigate("/contactos")
-      alert(`Bienvenido!`)
+  const handleSubmit = async() => {
+    try{
+      const response = await api.get(`/usuarios/${userRequest.u}/${userRequest.p}`)
+      localStorage.setItem("user", response.data)
+      if(response.data.idrol == 1){
+        navigate("/admin/usuarios")
+      }else{
+        navigate("/agente")
+      }
     }catch(err){
       console.log(`Error: ${err.message}`);
-    }try{
-      const response = api.get(`/${userRequest.u}/${userRequest.p}`)
-      navigate("/contactos")
-      alert(`Bienvenido!`)
-    }catch(err){
-      console.log(`Error: ${err.message}`);
-    }*/
-    navigate("/admin")
+    }
   }
 
   return (
@@ -69,7 +67,7 @@ const Login = () => {
             <Typography component="h1" variant="h5">
               Iniciar sesión
             </Typography>
-            <Box component="form" noValidate sx={{ mt: 1 }}>
+            <Box sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
